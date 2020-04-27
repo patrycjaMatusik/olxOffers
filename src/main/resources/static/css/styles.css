@@ -4,3 +4,7 @@ textarea {
   font-size: 0.8rem;
   line-height: 1.2;
 }
+
+body {
+  background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
