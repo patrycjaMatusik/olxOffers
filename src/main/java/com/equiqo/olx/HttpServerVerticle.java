@@ -1,10 +1,10 @@
 package com.equiqo.olx;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Future;
 import io.vertx.core.Promise;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServer;
-import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
@@ -26,10 +26,9 @@ public class HttpServerVerticle extends AbstractVerticle {
   private static final String OFFER_ID = "id";
   private static final String OFFER_NAME = "name";
   private static final String OFFER_PRICE = "price";
-  private static final String OFFERS = "offers";
 
   @Override
-  public void start(Promise<Void> promise) throws Exception {
+  public void start(Future<Void> fut) throws Exception {
     HttpServer server = vertx.createHttpServer();
 
     Router router = Router.router(vertx);
@@ -37,13 +36,13 @@ public class HttpServerVerticle extends AbstractVerticle {
     router.route("/static/*").handler(StaticHandler.create("static"));
     router.get("/offers/olx/:keyword").handler(this::offersRenderingHandler);
 
-    server.requestHandler(router).listen(8888);
-  }
-
-  private void indexHandler(RoutingContext context) {
-    HttpServerResponse response = context.response();
-    response.putHeader("content-type", "text/plain");
-    response.end("Hello World from Vert.x-Web!");
+    server.requestHandler(router).listen(8888, result -> {
+      if (result.succeeded()) {
+        fut.complete();
+      } else {
+        fut.fail(result.cause());
+      }
+    });
   }
 
   private void offersRenderingHandler(RoutingContext context){
@@ -63,7 +62,7 @@ public class HttpServerVerticle extends AbstractVerticle {
             .putHeader("content-type", "application/json; charset=utf-8")
             .end(offersInJSONFormat.encodePrettily());
 
-          System.out.println("Received response with status code" + response.statusCode());
+          System.out.println("Received response with status code " + response.statusCode());
         } else {
           System.out.println("Something went wrong " + ar.cause().getMessage());
         }

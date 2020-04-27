@@ -2,7 +2,6 @@ package com.equiqo.olx;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
-import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 
 public class MainVerticle extends AbstractVerticle {
@@ -13,8 +12,10 @@ public class MainVerticle extends AbstractVerticle {
     vertx.deployVerticle("com.equiqo.olx.HttpServerVerticle", res -> {
       if (res.succeeded()) {
         System.out.println("Deployment id is: " + res.result());
+        startFuture.complete();
       } else {
         System.out.println("Deployment failed!");
+        startFuture.fail(res.cause());
       }
     });
   }
