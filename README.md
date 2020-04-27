@@ -31,9 +31,9 @@ Simple user interface is available:
 Format: ![Alt Text](url)
 
 Steps:
-* go to localhost:8888/
-* type in keyword you want to search for
-* click 'search' button
-* result is displayed in textarea Result
+1. go to localhost:8888/
+1. type in keyword you want to search for
+1. click 'search' button
+1. result is displayed in textarea Result
 
 
