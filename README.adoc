@@ -20,12 +20,19 @@ To run your application:
 ```
 ./mvnw clean compile exec:java
 ```
+== Description
 
-== Help
+Application purpose is to get keyword from user, search for this keyword on olx.pl and fetch first page of offers. These offers should be parsed to JSON format and displayed to user.
+Application can be ran from IDE (main method is in MainVerticle class). Second option is using maven.
 
-* https://vertx.io/docs/[Vert.x Documentation]
-* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
-* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
-* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+Simple user interface is available:
+
+![UI view](src/main/resources/img/front.PNG?raw=true "User interface")
+
+Steps:
+1. go to localhost:8888/
+2. type in keyword you want to search for
+3. click 'search' button
+4. result is displayed in textarea Result
 
 
