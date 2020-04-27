@@ -27,12 +27,13 @@ Application can be ran from IDE (main method is in MainVerticle class). Second o
 
 Simple user interface is available:
 
-![UI view](src/main/resources/img/front.PNG?raw=true "User interface")
+![UI view](/src/main/resources/img/front.png)
+Format: ![Alt Text](url)
 
 Steps:
-1. go to localhost:8888/
-2. type in keyword you want to search for
-3. click 'search' button
-4. result is displayed in textarea Result
+* go to localhost:8888/
+* type in keyword you want to search for
+* click 'search' button
+* result is displayed in textarea Result
 
 
