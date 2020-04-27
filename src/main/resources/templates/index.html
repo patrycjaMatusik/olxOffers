@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="/static/css/styles.css" rel="stylesheet">
+
+  <title>Olx offers</title>
+</head>
+<body>
+<div class="container my-4">
+  <div class="jumbotron">
+    <h1>Olx offers</h1>
+    <hr class="my-4">
+    <p>This my first application developed using Vert.x and Vertx Web.
+      <br>Type in keyword, click 'search' and you'll see first page of offers form olx.pl in JSON format.</p>
+  </div>
+  <div class="container">
+    <form id="searchForKeywordForm">
+      <div class="form-group">
+        <label for="keyword"><h3>Keyword you want to search for:</h3></label>
+        <input type="text" class="form-control" id="keyword" placeholder="kot">
+      </div>
+      <button type="submit" class="btn btn-outline-primary" onclick="submitKeywordSearch()">Search</button>
+    </form>
+  </div>
+  <div class="container">
+    <div class="form-group mt-3">
+      <label for="olxOffers"><h3>Result</h3></label>
+      <textarea readonly class="form-control" name="olxOffers" id="olxOffers"></textarea>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/static/js/controls.js"></script>
+</body>
+</html>
